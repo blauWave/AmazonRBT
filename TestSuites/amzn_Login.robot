@@ -10,9 +10,6 @@ Test Teardown    exit browser
 
 
 *** Variables ***
-#Browsers Firefox, Chrome, Edge
-${Url}               https://www.amazon.com/
-${Browser}                     Chrome
 &{proddata}     searchitem=iphone   expected=iphone
 &{credential}   email=akyurt.a@gmx.de  password=17290641Naz.
 ${filepath}    C:\\Users\\PC\\PycharmProjects\\AmazonRBT\\TestData\\csvdata.csv
