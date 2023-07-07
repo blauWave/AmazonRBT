@@ -23,6 +23,9 @@ amazon login
     amazon_login.continue with email
     amazon_login.fill password    ${password}
     amazon_login.continue with password
+    ${title}=    get window titles
+
+    should be equal as strings   ${title}[0]    Amazon.de: Günstige Preise für Elektronik & Foto, Filme, Musik, Bücher, Games, Spielzeug & mehr
 amzon login csv
     [Arguments]  @{val}
     amazon_nav.navigate to amazon login page
