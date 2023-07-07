@@ -1,3 +1,4 @@
 *.html
-*.xmm
+*.xml
 *.png
+Report/*
