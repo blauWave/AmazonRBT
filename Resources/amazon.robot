@@ -8,6 +8,7 @@ Resource   ../Resources/PO/useraccount.robot
 Resource   ../Resources/PO/address.robot
 Library     Dialogs
 
+
 *** Variables ***
 
 *** Keywords ***
@@ -26,6 +27,22 @@ amazon login
     ${title}=    get window titles
 
     should be equal as strings   ${title}[0]    Amazon.de: Günstige Preise für Elektronik & Foto, Filme, Musik, Bücher, Games, Spielzeug & mehr
+
+amazon logout
+    [Arguments]  ${email}   ${password}
+    amazon_nav.navigate to amazon login page
+    amazon_login.fill email    ${email}
+    amazon_login.continue with email
+    amazon_login.fill password    ${password}
+    amazon_login.continue with password
+    ${title}=    get window titles
+
+    should be equal as strings   ${title}[0]    Amazon.de: Günstige Preise für Elektronik & Foto, Filme, Musik, Bücher, Games, Spielzeug & mehr
+    mouse over    nav-link-accountList
+    wait until element is visible    //*[@id="nav-item-signout"]/span
+    click element    //*[@id="nav-item-signout"]/span
+    capture page screenshot
+
 amzon login csv
     [Arguments]  @{val}
     amazon_nav.navigate to amazon login page
@@ -38,7 +55,9 @@ amazon product count
     [Arguments]    ${searchitem}    ${xpathsearch}    ${count}
     amazon_nav.navigate to amazon home page
     homepage.search item    ${searchitem}
-    locator should match x times    ${xpathsearch}  ${Count}
+    ${element_count}=   get element count    ${xpathsearch}
+    should be equal as integers    ${Count}     ${element_count}
+
 
 amazon add to cart
     [Arguments]    ${item}    ${locator}

@@ -1,7 +1,11 @@
 *** Settings ***
 Library           SeleniumLibrary
-Resource          ../file path
-Library           ../file path
+Library    Dialogs
+Library    OperatingSystem
+
+Resource    ../Resources/amazon.robot
+Resource    ../Resources/common.robot
+Resource    ../Resources/amazon_datareader.robot
 
 Suite Setup       open browser with base url and browser
 Test Setup        set screenshoot directory to this folder      ./file path
@@ -31,7 +35,8 @@ Login Should Failed With Unregistered Mail Adress
 
 *** Keywords ***
 Open LinkedinPage
-    open browser    ${SiteUrl}    ${Browser}
+    create webdriver        ${Browser}
+    go to    ${SiteUrl}
     Maximize Browser Window
 
 Enter User Name

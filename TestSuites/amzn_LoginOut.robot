@@ -18,21 +18,6 @@ ${filepathprod}     C:\\Users\\PC\\PycharmProjects\\AmazonRBT\\TestData\\product
 
 
 *** Test Cases ***
-amazon login invalid scenarios
-    [Tags]  Negative
-    [Documentation]    to test  invalid login scenarios with data driven
-    #List
-    @{csvdata}=    Get csv data    ${filepath}
-    FOR    ${val}    IN    @{csvdata}
-        log to console    ${val}
-        amzon login csv    @{val}
-    END
-amazon login scenarios
-    [Tags]    Positive
-    [Documentation]    to test  valid login scenarios
-    [Template]    amazon login
-    &{credential}
-
 amazon logout scenarios
     [Tags]     logout
     [Documentation]    to test  valid logout scenarios

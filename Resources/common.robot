@@ -6,8 +6,8 @@ Library                 ../Libraries/Driver_Manager.py
 
 *** Keywords ***
 start browser
-    ${chromedriver_path}=    Get Driver Path    Chrome
-    Create Webdriver    Chrome    executable_path=${chromedriver_path}
+    #${chromedriver_path}=    Get Driver Path    Chrome
+    Create Webdriver    Chrome    #executable_path=${chromedriver_path}
     maximize browser window
 exit browser
     close all browsers

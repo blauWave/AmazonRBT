@@ -13,14 +13,13 @@ Library                 ../Libraries/Driver_Manager.py
 Library                 ../Libraries/LambdaTestStatus.py
 
 *** Variables ***
-${text}                 Done! This text is coming from Robot Framework
+${text}                             Done! This text is coming from Robot Framework
+${environmentToRunTest}             LOCAL
+${os}                               Windows
+${osVersion}                        10
+${browserVersion}                   latest
 
-${environmentToRunTest}         LOCAL
-${os}                          Windows
-${osVersion}                   10
-${browserVersion}              latest
-
-${Driver}   webdriverManager
+${Driver}                           webdriverManager
 
 
 # Here we can set the Browser-Window Sizes in Pixels.
@@ -54,8 +53,7 @@ Close Browser Session
 
 webdriverManager
     [Arguments]      ${Url}     ${Browser}
-    ${chromedriver_path}=    Get Driver Path    ${Browser}
-    Create Webdriver    ${Browser}    executable_path=${chromedriver_path}
+    #Create Webdriver    ${Browser}    #executable_path=${chromedriver_path}
     Go to  ${Url}
     maximize browser window
 

@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    DebugLibrary
 
 *** Variables ***
 
@@ -7,17 +8,18 @@ Library    SeleniumLibrary
 search item
     [Arguments]    ${searchitem}
     input text    id:twotabsearchtextbox    ${searchitem}
-    click button    xpath=//input[@type='submit' and @class='nav-input']
+    click button    nav-search-submit-button
 
 
 search and select item
     [Arguments]    ${searchitem}    ${locator}
     input text    id:twotabsearchtextbox    ${searchitem}
-    click button    xpath=//input[@type='submit' and @class='nav-input']
+    click button    nav-search-submit-button
     click element    ${locator}
     sleep   3s
-    Select Window   NEW
-    click button    xpath://input[@id='add-to-cart-button']
+    #debug
+    switch window    NEW
+    click button    add-to-cart-button
 
 
 
