@@ -4,7 +4,7 @@ Resource    ../Resources/common.robot
 Library    Dialogs
 Library    OperatingSystem
 Test Setup    common.start browser
-#Test Teardown  common.exit browser
+Test Teardown  common.exit browser
 Resource    ../Resources/amazon_datareader.robot
 
 *** Variables ***

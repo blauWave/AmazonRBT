@@ -1,11 +1,13 @@
 *** Settings ***
-Library           SeleniumLibrary
-Library    Dialogs
-Library    OperatingSystem
+Library             SeleniumLibrary
+Library             Dialogs
+Library             OperatingSystem
+Library             ../Libraries/csvinput.py
+Library             ../Libraries/excelreader.py
 
-Resource    ../Resources/amazon.robot
-Resource    ../Resources/common.robot
-Resource    ../Resources/amazon_datareader.robot
+Resource            ../Resources/amazon.robot
+Resource            ../Resources/common.robot
+Resource            ../Resources/amazon_datareader.robot
 
 Suite Setup       open browser with base url and browser
 Test Setup        set screenshoot directory to this folder      ./file path

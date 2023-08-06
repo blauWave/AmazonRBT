@@ -19,7 +19,7 @@ ${filepathprod}     C:\\Users\\PC\\PycharmProjects\\AmazonRBT\\TestData\\product
 
 *** Test Cases ***
 amazon login invalid scenarios
-    [Tags]  Negative
+    [Tags]  Negative skome regression
     [Documentation]    to test  invalid login scenarios with data driven
     #List
     @{csvdata}=    Get csv data    ${filepath}
